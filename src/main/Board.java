@@ -1,11 +1,13 @@
+package main;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Stack;
 
 public class Board {
 
-    public static int sizeX;
-    public static int sizeY;
+    public static int sizeX = 20;
+    public static int sizeY = 20;
 
     public enum Square {
         HIT,
@@ -36,10 +38,10 @@ public class Board {
         }
     }
 
-    public static boolean checkCoordsValid(ArrayList<Point> coords){
+    static boolean checkValidPoints(ArrayList<Point> points){
 
-        for (Point c : coords){
-            if (c.x < 0 || c.x > sizeX || c.y < 0 || c.y > sizeY){ return false; }
+        for (Point p : points){
+            if (!( p.x >= 0 && p.x <= sizeX && p.y >= 0 && p.y <= sizeY)) { return false; }
         }
 
         return true;
